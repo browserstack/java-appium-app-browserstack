@@ -8,8 +8,5 @@ Do remember to switch the USERNAME and ACCESS_KEY with your own browserstack cre
 
 For frameworks integration with BrowserStack, refer to their individual repositories - 
 
-[JUnit]
-[TestNg]
-
-[JUnit]:https://github.com/browserstack/junit-browserstack
-[TestNg]:https://github.com/browserstack/testng-browserstack
+[JUnit](https://github.com/browserstack/junit-browserstack)
+[TestNg](https://github.com/browserstack/testng-browserstack)
