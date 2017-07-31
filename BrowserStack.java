@@ -1,25 +1,27 @@
 import java.net.URL;
+import java.util.List;
 import java.net.MalformedURLException;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.MobileElement;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BrowserStack {
+	
+    public static String accessKey = "BROWSERSTACK_USERNAME";
+    public static String userName = "BROWSERSTACK_ACCESS_KEY";
 
     public static void main(String args[]) throws MalformedURLException, InterruptedException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("realMobile", true);
-        capabilities.setCapability("device", "Samsung Galaxy S6");
-        capabilities.setCapability("app", "bs://3fc0a1f5a158e935ad806b97288f4b24e11ebcc4");
+        capabilities.setCapability("device", "Samsung Galaxy S7");
+        capabilities.setCapability("app", "bs://d561ad02f69d8a329e50e92471d170ed9916b671");
 
-        AndroidDriver driver = new AndroidDriver(new URL("http://BROWSERSTACK_USERNAME:BROWSERSTACK_ACCESS_KEY@hub.browserstack.com/wd/hub"), capabilities);
+        AndroidDriver driver = new AndroidDriver(new URL("https://"+userName+":"+accessKey+"@hub.browserstack.com/wd/hub"), capabilities);
 
         WebElement searchElement = new WebDriverWait(driver, 30).until(
             ExpectedConditions.elementToBeClickable(By.id("Search Wikipedia")));
@@ -30,7 +32,7 @@ public class BrowserStack {
         Thread.sleep(5000);
 
         List<WebElement> allProductsName = driver.findElements(By.className("android.widget.TextView"));
-        assertTrue(allProductsName.size() > 0);
+        assert(allProductsName.size() > 0);
 
         driver.quit();
     }
