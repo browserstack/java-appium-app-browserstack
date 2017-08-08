@@ -39,7 +39,7 @@ public class LocalSample {
         capabilities.setCapability("browserstack.local", true);
         capabilities.setCapability("realMobile", true);
         capabilities.setCapability("device", "Samsung Galaxy S7");
-        capabilities.setCapability("app", "bs://d561ad02f69d8a329e50e92471d170ed9916b671");
+        capabilities.setCapability("app", "bs://<hashed app-id>");
 
         AndroidDriver driver = new AndroidDriver(new URL("https://"+userName+":"+accessKey+"@hub.browserstack.com/wd/hub"), capabilities);
 
