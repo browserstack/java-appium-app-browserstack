@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 
-public class LocalSample {
+public class LocalSampleAndroid {
     private static Local localInstance;
     public static String accessKey = "BROWSERSTACK_USERNAME";
     public static String userName = "BROWSERSTACK_ACCESS_KEY";

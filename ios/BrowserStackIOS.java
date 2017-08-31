@@ -11,7 +11,7 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 
 
-public class BrowserStack {
+public class BrowserStackIOS {
     public static String accessKey = "BROWSERSTACK_USERNAME";
     public static String userName = "BROWSERSTACK_ACCESS_KEY";
 
