@@ -19,7 +19,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
-public class LocalSample {
+public class LocalSampleIOS {
     private static Local localInstance;
     public static String accessKey = "BROWSERSTACK_USERNAME";
     public static String userName = "BROWSERSTACK_ACCESS_KEY";
