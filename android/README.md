@@ -10,6 +10,8 @@
 to the BrowserStack servers using the above API.
 - Update the desired capability "app" with the App URL returned from the above API call
 
+For running LocalSample tests, you can download `browserstack-local-java.jar` from [here](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22browserstack-local-java%22).
+
 For frameworks integration with BrowserStack, refer to their individual repositories -
 
 - [JUnit](https://github.com/browserstack/junit-appium-app-browserstack)
