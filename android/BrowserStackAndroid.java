@@ -22,7 +22,7 @@ public class BrowserStackAndroid {
         capabilities.setCapability("device", "Samsung Galaxy S7");
         capabilities.setCapability("app", "bs://<hashed app-id>");
 
-        AndroidDriver driver = new AndroidDriver<AndroidElement>(new URL("https://"+userName+":"+accessKey+"@hub.browserstack.com/wd/hub"), capabilities);
+        AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("https://"+userName+":"+accessKey+"@hub.browserstack.com/wd/hub"), capabilities);
 
         AndroidElement searchElement = (AndroidElement) new WebDriverWait(driver, 30).until(
             ExpectedConditions.elementToBeClickable(MobileBy.AccessibilityId("Search Wikipedia")));
