@@ -37,7 +37,6 @@ public class LocalSampleAndroid {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("browserstack.local", true);
-        capabilities.setCapability("realMobile", true);
         capabilities.setCapability("device", "Samsung Galaxy S7");
         capabilities.setCapability("app", "bs://<hashed app-id>");
 

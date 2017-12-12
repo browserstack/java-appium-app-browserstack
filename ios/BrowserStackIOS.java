@@ -18,10 +18,8 @@ public class BrowserStackIOS {
     public static void main(String args[]) throws MalformedURLException, InterruptedException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        capabilities.setCapability("realMobile", true);
         capabilities.setCapability("device", "iPhone 7");
         capabilities.setCapability("app", "bs://<hashed app-id>");
-        capabilities.setCapability("automationName", "XCUITest");
 
         IOSDriver<IOSElement> driver = new IOSDriver<IOSElement>(new URL("http://"+userName+":"+accessKey+"@hub.browserstack.com/wd/hub"), capabilities);
 
@@ -40,7 +38,7 @@ public class BrowserStackIOS {
         String matchedString = "";
         for(IOSElement textElement : textElements) {
           String textContent = textElement.getText();
-          if(textContent.contains("not registered")) {
+          if(textContent != null && textContent.contains("not registered")) {
             matchedString = textContent;
           }
         }

@@ -18,7 +18,6 @@ public class BrowserStackAndroid {
     public static void main(String args[]) throws MalformedURLException, InterruptedException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        capabilities.setCapability("realMobile", true);
         capabilities.setCapability("device", "Samsung Galaxy S7");
         capabilities.setCapability("app", "bs://<hashed app-id>");
 

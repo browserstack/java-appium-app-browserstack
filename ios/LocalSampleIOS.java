@@ -42,10 +42,8 @@ public class LocalSampleIOS {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("browserstack.local", true);
-        capabilities.setCapability("realMobile", true);
         capabilities.setCapability("device", "iPhone 7");
         capabilities.setCapability("app", "bs://<hashed app-id>");
-        capabilities.setCapability("automationName", "XCUITest");
 
         IOSDriver<IOSElement> driver = new IOSDriver<IOSElement>(new URL("http://"+userName+":"+accessKey+"@hub.browserstack.com/wd/hub"), capabilities);
 
