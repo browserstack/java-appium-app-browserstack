@@ -18,15 +18,15 @@ This repository demonstrates how to run Appium Java tests on BrowserStack App Au
 
 ### Install the dependencies
 
-1. Import the project as an existing Maven project in your IDE
+1. Import the `java-browserstack` Maven project as an existing Maven project in your IDE
 
-2. Clean and build the imported project
+2. Clean and build the project
 
 ## Getting Started
 
 Getting Started with Appium tests in Java on BrowserStack couldn't be easier!
 
-### Upoad your Android or iOS App
+### Upload your Android or iOS App
 
 Upload your Android app (.apk or .aab file) or iOS app (.ipa file) to BrowserStack servers using our REST API. Here is an example cURL request :
 
