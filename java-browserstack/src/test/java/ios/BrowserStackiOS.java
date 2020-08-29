@@ -18,11 +18,11 @@ public class BrowserStackiOS {
    	DesiredCapabilities capabilities = new DesiredCapabilities();
     	
     	// Set your access credentials
-    	capabilities.setCapability("browserstack.user", "neerajkumar42");
-    	capabilities.setCapability("browserstack.key", "MXmmyxNzZTYmXyyA8xyB");
+    	capabilities.setCapability("browserstack.user", "YOUR_USERNAME");
+    	capabilities.setCapability("browserstack.key", "YOUR_ACCESS_KEY");
     	
     	// Set URL of the application under test
-    	capabilities.setCapability("app", "bs://a2c4c0bd114ce9765af0988a632982cb42688b81");
+    	capabilities.setCapability("app", "bs://<app-id>");
     	
     	// Specify device and os_version for testing
     	capabilities.setCapability("device", "iPhone 11 Pro");
