@@ -5,3 +5,4 @@ local.log
 *.iml
 **/.DS_Store
 **/.settings
+java-browserstack/.classpath
