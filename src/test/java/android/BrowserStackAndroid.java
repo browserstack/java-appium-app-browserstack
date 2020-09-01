@@ -21,11 +21,11 @@ public class BrowserStackAndroid {
     	DesiredCapabilities capabilities = new DesiredCapabilities();
     	
     	// Set your access credentials
-    	capabilities.setCapability("browserstack.user", "YOUR_USERNAME");
-    	capabilities.setCapability("browserstack.key", "YOUR_ACCESS_KEY");
+    	capabilities.setCapability("browserstack.user", "neerajkumar42");
+    	capabilities.setCapability("browserstack.key", "MXmmyxNzZTYmXyyA8xyB");
     	
     	// Set URL of the application under test
-    	capabilities.setCapability("app", "bs://<app-id>");
+    	capabilities.setCapability("app", "bs://d318ec55142bf92b1fec9fce6904109294db6678");
     	
     	// Specify device and os_version for testing
     	capabilities.setCapability("device", "Google Pixel 3");
