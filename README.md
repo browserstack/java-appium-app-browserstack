@@ -12,15 +12,18 @@ This repository demonstrates how to run Appium Java tests on BrowserStack App Au
     - For Windows, download latest java version from [here](https://java.com/en/download/) and run the installer executable
     - For Mac and Linux, run `java -version` to see what java version is pre-installed. If you want a different version download from [here](https://java.com/en/download/)
 
-2. Eclipse IDE or IntelliJ IDEA
+2. Maven
 
-    - If not installed, download and install Eclipse IDE from [here](https://www.eclipse.org/downloads/) or IntelliJ IDEA from [here](https://www.jetbrains.com/idea/download/#section=windows)
+    - If Maven is not downloaded, download it from [here](https://maven.apache.org/download.cgi)
+    - For installation, follow the instructions [here](https://maven.apache.org/install.html)
 
 ### Install the dependencies
 
-1. Import the `java-browserstack` Maven project as an "Existing Maven project" in your IDE
+1. Run the following command in the project's base folder
 
-2. Clean and build the project
+```cmd
+mvn clean install
+```
 
 ## Getting Started
 
@@ -42,7 +45,7 @@ Ensure that @ symbol is prepended to the file path in the above request. Please 
 
 ### **Run first test :**
 
-Open `BrowserStackAndroid.java` file for Android test or `BrowserStackiOS.java` for iOS test
+Open `BrowserStackAndroid.java` file in the `android` directory or `BrowserStackiOS.java` in the `ios` directory
 
 - Replace `YOUR_USERNAME` & `YOUR_ACCESS_KEY` with your BrowserStack access credentials
 
@@ -52,9 +55,21 @@ Open `BrowserStackAndroid.java` file for Android test or `BrowserStackiOS.java` 
 
 - If you have uploaded your own app update the test case
 
-- Run `BrowserStackAndroid.java` for android test or `BrowserStackiOS.java` for iOS test
+- To run the test, use the following command in the base directory :
 
-- - You can access the test execution results, and debugging information such as video recording, network logs on [App Automate dashboard](https://app-automate.browserstack.com/dashboard)
+    - For Android test, run
+
+    ```cmd
+    mvn test -P android-first-test
+    ```
+
+    - For iOS test, run
+
+    ```cmd
+    mvn test -P ios-first-test
+    ```
+
+- You can access the test execution results, and debugging information such as video recording, network logs on [App Automate dashboard](https://app-automate.browserstack.com/dashboard)
 
 For more details, refer to our documentation - [Get Started with your first test on App Automate](https://www.browserstack.com/docs/app-automate/appium/getting-started/java)
 
