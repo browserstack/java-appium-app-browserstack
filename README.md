@@ -49,7 +49,7 @@ Open `BrowserStackAndroid.java` file in the `android` directory or `BrowserStack
 
 - Replace `YOUR_USERNAME` & `YOUR_ACCESS_KEY` with your BrowserStack access credentials
 
-- Replace `bs://<app-id>` wkth the URL obtained from app upload step
+- Replace `bs://<app-id>` with the URL obtained from app upload step
 
 - Set the device and OS version
 
