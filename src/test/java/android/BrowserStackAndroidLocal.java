@@ -17,35 +17,55 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BrowserStackAndroidLocal {
 	
-    private static Local localInstance;
-    public static String accessKey = "BROWSERSTACK_USERNAME";
-    public static String userName = "BROWSERSTACK_ACCESS_KEY";
-  
-
-    public static void setupLocal() throws Exception {
-      localInstance = new Local();
-      Map<String, String> options = new HashMap<String, String>();
-      options.put("key", accessKey);
-      localInstance.start(options);
-    }
-
-    public static void tearDownLocal() throws Exception {
-      localInstance.stop();
-    }
+  private static Local localInstance;
+  public static String userName = "YOUR_USERNAME";
+  public static String accessKey = "YOUR_ACCESS_KEY";
 
 
+  public static void setupLocal() throws Exception {
+    localInstance = new Local();
+    Map<String, String> options = new HashMap<String, String>();
+    options.put("key", accessKey);
+    localInstance.start(options);
+  }
+
+  public static void tearDownLocal() throws Exception {
+    localInstance.stop();
+  }
 
 	public static void main(String[] args) throws Exception {
-        setupLocal();
+      // Start the BrowserStack Local binary
+      setupLocal();
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+      DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        capabilities.setCapability("browserstack.local", true);
-        capabilities.setCapability("device", "Samsung Galaxy S7");
-        capabilities.setCapability("app", "bs://<hashed app-id>");
+    	// Set your access credentials
+    	capabilities.setCapability("browserstack.user", userName);
+    	capabilities.setCapability("browserstack.key", accessKey);
 
-        AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("https://"+userName+":"+accessKey+"@hub.browserstack.com/wd/hub"), capabilities);
+    	// Set URL of the application under test
+    	capabilities.setCapability("app", "bs://<app-id>");
 
+    	// Specify device and os_version for testing
+    	capabilities.setCapability("device", "Google Pixel 3");
+    	capabilities.setCapability("os_version", "9.0");
+
+      // Set the browserstack.local capability to true
+      capabilities.setCapability("browserstack.local", true);
+
+      // Set other BrowserStack capabilities
+    	capabilities.setCapability("project", "First Java Project");
+    	capabilities.setCapability("build", "Java Android Local");
+    	capabilities.setCapability("name", "local_test");
+       
+
+   	  // Initialise the remote Webdriver using BrowserStack remote URL
+    	// and desired capabilities defined above
+      AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(
+        new URL("http://hub.browserstack.com/wd/hub"), capabilities);
+
+        // Test case for the BrowserStack sample Android Local app. 
+        // If you have uploaded your app, update the test case here.   
         AndroidElement searchElement = (AndroidElement) new WebDriverWait(driver, 30).until(
             ExpectedConditions.elementToBeClickable(MobileBy.id("com.example.android.basicnetworking:id/test_action")));
         searchElement.click();
@@ -69,8 +89,10 @@ public class BrowserStackAndroidLocal {
         assert(matchedString.contains("The active connection is wifi"));
         assert(matchedString.contains("Up and running"));
 
+        // Invoke driver.quit() after the test is done to indicate that the test is completed.
         driver.quit();
 
+        // Stop the BrowserStack Local binary
         tearDownLocal();
 
 	}
