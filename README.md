@@ -45,7 +45,9 @@ Ensure that @ symbol is prepended to the file path in the above request. Please 
 
 **Note**: If you do not have an .apk or .ipa file and are looking to simply try App Automate, you can download and test using our [sample Android app](https://www.browserstack.com/app-automate/sample-apps/android/WikipediaSample.apk) or [sample iOS app](https://www.browserstack.com/app-automate/sample-apps/ios/BStackSampleApp.ipa).
 
-**2. Open `BrowserStackAndroid.java` file in the `android` directory or `BrowserStackiOS.java` in the `ios` directory :**
+**2. Configure and run your first test**
+
+Open `BrowserStackAndroid.java` file in the `android` directory or `BrowserStackiOS.java` in the `ios` directory :
 
 - Replace `YOUR_USERNAME` & `YOUR_ACCESS_KEY` with your BrowserStack access credentials
 
@@ -89,7 +91,9 @@ Ensure that @ symbol is prepended to the file path in the above request. Please 
 
 **Note**: If you do not have an .apk or .ipa file and are looking to simply try App Automate, you can download and test using our [sample Android Local app](https://www.browserstack.com/app-automate/sample-apps/android/LocalSample.apk) or [sample iOS Local app](https://www.browserstack.com/app-automate/sample-apps/ios/LocalSample.ipa).
 
-**2. Open `BrowserStackAndroidLocal.java` file in the `android` directory or `BrowserStackiOSLocal.java` in the `ios` directory :**
+**2. Configure and run your local test**
+
+Open `BrowserStackAndroidLocal.java` file in the `android` directory or `BrowserStackiOSLocal.java` in the `ios` directory :
 
 - Replace `YOUR_USERNAME` & `YOUR_ACCESS_KEY` with your BrowserStack access credentials
 
