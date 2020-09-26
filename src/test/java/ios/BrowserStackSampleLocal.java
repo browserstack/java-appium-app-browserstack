@@ -1,31 +1,17 @@
 package ios;
 
 import com.browserstack.local.Local;
-
-import java.net.URL;
-import java.io.File;
-import java.util.Map;
-import java.util.HashMap;
+import java.net.URL; import java.io.File; import java.util.*;
 import org.apache.commons.io.FileUtils;
+import io.appium.java_client.MobileBy; import io.appium.java_client.ios.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.*;import org.openqa.selenium.remote.*;
 
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.ios.IOSElement;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-
-public class BrowserStackiOSLocal {
+public class BrowserStackSampleLocal {
 	
     private static Local localInstance;
-    public static String accessKey = "YOUR_USERNAME";
-    public static String userName = "YOUR_ACCESS_KEY";
+    public static String userName = "YOUR_USERNAME";
+    public static String accessKey = "YOUR_ACCESS_KEY";
   
 
     public static void setupLocal() throws Exception {
