@@ -1,8 +1,16 @@
 package ios;
 
-import java.net.*;
-import org.openqa.selenium.remote.*; import org.openqa.selenium.support.ui.*;
-import io.appium.java_client.MobileBy;import io.appium.java_client.ios.*;
+import java.net.URL;
+import java.util.List;
+import java.net.MalformedURLException;
+
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
 
 public class BrowserStackSample {
 
