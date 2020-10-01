@@ -19,29 +19,29 @@ public class BrowserStackSample {
 
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
 		
-    	DesiredCapabilities capabilities = new DesiredCapabilities();
+    	DesiredCapabilities caps = new DesiredCapabilities();
     	
     	// Set your access credentials
-    	capabilities.setCapability("browserstack.user", "YOUR_USERNAME");
-    	capabilities.setCapability("browserstack.key", "YOUR_ACCESS_KEY");
+    	caps.setCapability("browserstack.user", "YOUR_USERNAME");
+    	caps.setCapability("browserstack.key", "YOUR_ACCESS_KEY");
     	
     	// Set URL of the application under test
-    	capabilities.setCapability("app", "bs://<app-id>");
+    	caps.setCapability("app", "bs://<app-id>");
     	
     	// Specify device and os_version for testing
-    	capabilities.setCapability("device", "Google Pixel 3");
-    	capabilities.setCapability("os_version", "9.0");
+    	caps.setCapability("device", "Google Pixel 3");
+    	caps.setCapability("os_version", "9.0");
         
     	// Set other BrowserStack capabilities
-    	capabilities.setCapability("project", "First Java Project");
-    	capabilities.setCapability("build", "Java Android");
-    	capabilities.setCapability("name", "first_test");
+    	caps.setCapability("project", "First Java Project");
+    	caps.setCapability("build", "Java Android");
+    	caps.setCapability("name", "first_test");
        
     	
     	// Initialise the remote Webdriver using BrowserStack remote URL
     	// and desired capabilities defined above
         AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(
-        		new URL("http://hub.browserstack.com/wd/hub"), capabilities);
+        		new URL("http://hub.browserstack.com/wd/hub"), caps);
         
 
         // Test case for the BrowserStack sample Android app. 

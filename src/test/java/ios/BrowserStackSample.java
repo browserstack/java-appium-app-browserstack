@@ -15,29 +15,29 @@ import io.appium.java_client.ios.IOSElement;
 public class BrowserStackSample {
 
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
-   	DesiredCapabilities capabilities = new DesiredCapabilities();
+   	DesiredCapabilities caps = new DesiredCapabilities();
     	
     	// Set your access credentials
-    	capabilities.setCapability("browserstack.user", "YOUR_USERNAME");
-    	capabilities.setCapability("browserstack.key", "YOUR_ACCESS_KEY");
+    	caps.setCapability("browserstack.user", "YOUR_USERNAME");
+    	caps.setCapability("browserstack.key", "YOUR_ACCESS_KEY");
     	
     	// Set URL of the application under test
-    	capabilities.setCapability("app", "bs://<app-id>");
+    	caps.setCapability("app", "bs://<app-id>");
     	
     	// Specify device and os_version for testing
-    	capabilities.setCapability("device", "iPhone 11 Pro");
-    	capabilities.setCapability("os_version", "13");
+    	caps.setCapability("device", "iPhone 11 Pro");
+    	caps.setCapability("os_version", "13");
         
     	// Set other BrowserStack capabilities
-    	capabilities.setCapability("project", "First Java Project");
-    	capabilities.setCapability("build", "Java iOS");
-    	capabilities.setCapability("name", "first_test");
+    	caps.setCapability("project", "First Java Project");
+    	caps.setCapability("build", "Java iOS");
+    	caps.setCapability("name", "first_test");
     	
     	
     	// Initialise the remote Webdriver using BrowserStack remote URL
     	// and desired capabilities defined above
         IOSDriver<IOSElement> driver = new IOSDriver<IOSElement>(
-        		new URL("http://hub-cloud.browserstack.com/wd/hub"), capabilities);
+        		new URL("http://hub-cloud.browserstack.com/wd/hub"), caps);
         
 
         // Test case for the BrowserStack sample iOS app. 
