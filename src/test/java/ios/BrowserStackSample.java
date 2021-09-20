@@ -30,7 +30,7 @@ public class BrowserStackSample {
         
     	// Set other BrowserStack capabilities
     	caps.setCapability("project", "First Java Project");
-    	caps.setCapability("build", "Java iOS");
+    	caps.setCapability("build", "browserstack-build-1");
     	caps.setCapability("name", "first_test");
     	
     	
