@@ -45,7 +45,7 @@ public class BrowserStackSampleLocal {
 
       // Set other BrowserStack capabilities
     	capabilities.setCapability("project", "First Java Project");
-    	capabilities.setCapability("build", "Java Android Local");
+    	capabilities.setCapability("build", "browserstack-build-1");
     	capabilities.setCapability("name", "local_test");
        
 

@@ -48,7 +48,7 @@ public class BrowserStackSampleLocal {
 
       // Set other BrowserStack capabilities
     	capabilities.setCapability("project", "First Java Project");
-    	capabilities.setCapability("build", "Java iOS Local");
+    	capabilities.setCapability("build", "browserstack-build-1");
     	capabilities.setCapability("name", "local_test");
         
    	  // Initialise the remote Webdriver using BrowserStack remote URL
