@@ -3,9 +3,13 @@ package ios;
 import com.browserstack.local.Local;
 import java.net.URL; import java.io.File; import java.util.*;
 import org.apache.commons.io.FileUtils;
-import io.appium.java_client.MobileBy; import io.appium.java_client.ios.*;
+import io.appium.java_client.ios.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;import org.openqa.selenium.remote.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class BrowserStackSampleLocal {
 	
@@ -53,24 +57,24 @@ public class BrowserStackSampleLocal {
         
    	  // Initialise the remote Webdriver using BrowserStack remote URL
       // and desired capabilities defined above
-      IOSDriver<IOSElement> driver = new IOSDriver<IOSElement>(
+      RemoteWebDriver driver = new RemoteWebDriver(
         new URL("http://hub.browserstack.com/wd/hub"), capabilities);
 
         // Test case for the BrowserStack sample iOS Local app. 
         // If you have uploaded your app, update the test case here.   
-        IOSElement testButton = (IOSElement) new WebDriverWait(driver, 30).until(
-          ExpectedConditions.elementToBeClickable(MobileBy.AccessibilityId("TestBrowserStackLocal")));
+        WebElement testButton = (WebElement) new WebDriverWait(driver, 30).until(
+          ExpectedConditions.elementToBeClickable(By.xpath("//*[@content-desc='TestBrowserStackLocal']")));
         testButton.click();
-
+        
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(new ExpectedCondition<Boolean>() {
           @Override
           public Boolean apply(WebDriver d) {
-            String result = d.findElement(MobileBy.AccessibilityId("ResultBrowserStackLocal")).getAttribute("value");
+            String result = d.findElement(By.xpath("//*[@content-desc='ResultBrowserStackLocal']")).getAttribute("value");
             return result != null && result.length() > 0;
           }
         });
-        IOSElement resultElement = (IOSElement) driver.findElement(MobileBy.AccessibilityId("ResultBrowserStackLocal"));
+        WebElement resultElement = (WebElement) driver.findElement(By.xpath("//*[@content-desc='ResultBrowserStackLocal']"));
 
         String resultString = resultElement.getText().toLowerCase();
         System.out.println(resultString);

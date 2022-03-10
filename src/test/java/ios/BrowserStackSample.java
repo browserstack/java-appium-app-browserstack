@@ -8,9 +8,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.ios.IOSElement;
+import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class BrowserStackSample {
 
@@ -36,21 +37,21 @@ public class BrowserStackSample {
     	
     	// Initialise the remote Webdriver using BrowserStack remote URL
     	// and desired capabilities defined above
-        IOSDriver<IOSElement> driver = new IOSDriver<IOSElement>(
+        RemoteWebDriver driver = new RemoteWebDriver(
         		new URL("http://hub-cloud.browserstack.com/wd/hub"), caps);
         
 
         // Test case for the BrowserStack sample iOS app. 
         // If you have uploaded your app, update the test case here. 
-        IOSElement textButton = (IOSElement) new WebDriverWait(driver, 30).until(
-            ExpectedConditions.elementToBeClickable(MobileBy.AccessibilityId("Text Button")));
+        WebElement textButton = (WebElement) new WebDriverWait(driver, 30).until(
+            ExpectedConditions.elementToBeClickable(AppiumBy.accessibilityId("Text Button")));
         textButton.click();
-        IOSElement textInput = (IOSElement) new WebDriverWait(driver, 30).until(
-            ExpectedConditions.elementToBeClickable(MobileBy.AccessibilityId("Text Input")));
+        WebElement textInput = (WebElement) new WebDriverWait(driver, 30).until(
+            ExpectedConditions.elementToBeClickable(AppiumBy.accessibilityId("Text Input")));
         textInput.sendKeys("hello@browserstack.com");
         Thread.sleep(5000);
-        IOSElement textOutput = (IOSElement) new WebDriverWait(driver, 30).until(
-                ExpectedConditions.elementToBeClickable(MobileBy.AccessibilityId("Text Output")));
+        WebElement textOutput = (WebElement) new WebDriverWait(driver, 30).until(
+                ExpectedConditions.elementToBeClickable(AppiumBy.accessibilityId("Text Output")));
         if(textOutput != null && textOutput.getText().equals("hello@browserstack.com"))
             assert(true);
         else

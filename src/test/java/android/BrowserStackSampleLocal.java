@@ -2,8 +2,13 @@ package android;
 
 import com.browserstack.local.Local;
 import java.net.URL; import java.util.*;
-import io.appium.java_client.MobileBy; import io.appium.java_client.android.*;
-import org.openqa.selenium.support.ui.*;import org.openqa.selenium.remote.*;
+import io.appium.java_client.android.*;
+import org.openqa.selenium.support.ui.*;
+import org.openqa.selenium.remote.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class BrowserStackSampleLocal {
 	
@@ -51,21 +56,20 @@ public class BrowserStackSampleLocal {
 
    	  // Initialise the remote Webdriver using BrowserStack remote URL
     	// and desired capabilities defined above
-      AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(
-        new URL("http://hub.browserstack.com/wd/hub"), capabilities);
+        RemoteWebDriver driver = new RemoteWebDriver(new URL("http://hub.browserstack.com/wd/hub"), capabilities);
 
         // Test case for the BrowserStack sample Android Local app. 
         // If you have uploaded your app, update the test case here.   
-        AndroidElement searchElement = (AndroidElement) new WebDriverWait(driver, 30).until(
-            ExpectedConditions.elementToBeClickable(MobileBy.id("com.example.android.basicnetworking:id/test_action")));
+        WebElement searchElement = new WebDriverWait(driver, 30).until(
+            ExpectedConditions.elementToBeClickable(By.id("com.example.android.basicnetworking:id/test_action")));
         searchElement.click();
-        AndroidElement insertTextElement = (AndroidElement) new WebDriverWait(driver, 30).until(
-            ExpectedConditions.elementToBeClickable(MobileBy.className("android.widget.TextView")));
+        WebElement insertTextElement = (WebElement) new WebDriverWait(driver, 30).until(
+            ExpectedConditions.elementToBeClickable(By.className("android.widget.TextView")));
 
-        AndroidElement testElement = null;
-        List<AndroidElement> allTextViewElements = driver.findElementsByClassName("android.widget.TextView");
+        WebElement testElement = null;
+        List<WebElement> allTextViewElements = driver.findElements(By.className("android.widget.TextView"));
         Thread.sleep(10);
-        for(AndroidElement textElement : allTextViewElements) {
+        for(WebElement textElement : allTextViewElements) {
           if(textElement.getText().contains("The active connection is")) {
             testElement = textElement;
           }
