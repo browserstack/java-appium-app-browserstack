@@ -28,7 +28,7 @@ public class BrowserStackSample {
     browserstackOptions.put("buildName", "browserstack-build-1");
     browserstackOptions.put("sessionName", "first_test");
 
-    // Passing browserstack caspabilities inside bstack:options
+    // Passing browserstack capabilities inside bstack:options
     caps.setCapability("bstack:options", browserstackOptions);
 
     // Set URL of the application under test
