@@ -36,6 +36,8 @@ Getting Started with Appium tests in Java on BrowserStack couldn't be easier!
 
 - AppiumBy is available with java-client 8.0.0 as MobileBy is depreceated . For java-client < 8.0.0, MobileBy can be used.
 
+- DefaultGenericMobileElement class has been removed completely together with its descendants (MobileElement, IOSElement, AndroidElement etc.). Use WebElement instead.
+
 - WebDriverWait constructor requires time to be passed as a type Duration. So with java-client 8.0.0, pass wait time as a new Duration
     **java-client v-7.0.0**
     ```
