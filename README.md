@@ -34,23 +34,18 @@ Getting Started with Appium tests in Java on BrowserStack couldn't be easier!
 - Any BrowserStack capability passed outside bstack:options will not be honoured \
 [Browserstack Capability Builder](https://www.browserstack.com/app-automate/capabilities?tag=w3c)
 
-- AppiumBy is available with java-client 8.0.0 . For java-client < 8.0.0, MobileBy can be used.
+- AppiumBy is available with java-client 8.0.0 as MobileBy is depreceated . For java-client < 8.0.0, MobileBy can be used.
 
 - WebDriverWait constructor requires time to be passed as a type Duration. So with java-client 8.0.0, pass wait time as a new Duration
--   java-client v-7.0.0
+    **java-client v-7.0.0**
     ```
-     WebElement searchElement = (WebElement) new WebDriverWait(
-      driver,
-      30
-    )
+     WebElement searchElement = (WebElement) new WebDriverWait(driver, 30)
     ```
     
-    java-client v-8.0.0
+    **java-client v-8.0.0**
     ```
-     WebElement searchElement = (WebElement) new WebDriverWait(
-      driver,
-      Duration.ofSeconds(30)
-    )
+     import java.time.Duration;
+     WebElement searchElement = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30))
     ```
     
   Refer this for tracking changes in java-client 8.0.0 documentation - [v7-to-v8-migration-guide](https://github.com/appium/java-client/blob/master/docs/v7-to-v8-migration-guide.md#mobileelement)
