@@ -29,8 +29,9 @@ mvn clean install
 
 Getting Started with Appium tests in Java on BrowserStack couldn't be easier!
 
-For java-client 8.0.0 and above
-NOTE : Any BrowserStack capability passed outside bstack:options will not be honoured.
+### For java-client 8.0.0 and above
+
+NOTE : Any BrowserStack capability passed outside bstack:options will not be honoured \
 [Browserstack Capability Builder](https://www.browserstack.com/app-automate/capabilities?tag=w3c)
 
 ### Run your first test :
