@@ -3,7 +3,6 @@ package android;
 import com.browserstack.local.Local;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
-
 import java.net.URL;
 import java.time.Duration;
 import java.util.*;
@@ -35,7 +34,7 @@ public class BrowserStackSampleLocal {
 
     DesiredCapabilities capabilities = new DesiredCapabilities();
     HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
-  
+
     // Set your access credentials
     browserstackOptions.put("userName", userName);
     browserstackOptions.put("accessKey", accessKey);

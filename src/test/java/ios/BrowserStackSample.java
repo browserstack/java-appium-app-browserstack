@@ -2,12 +2,10 @@ package ios;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.ios.IOSDriver;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.HashMap;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,7 +17,7 @@ public class BrowserStackSample {
     throws MalformedURLException, InterruptedException {
     DesiredCapabilities caps = new DesiredCapabilities();
     HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
-  
+
     // Set your access credentials
     browserstackOptions.put("userName", "YOUR_USERNAME");
     browserstackOptions.put("accessKey", "YOUR_ACCESS_KEY");
@@ -29,7 +27,7 @@ public class BrowserStackSample {
     browserstackOptions.put("projectName", "First Java Project");
     browserstackOptions.put("buildName", "browserstack-build-1");
     browserstackOptions.put("sessionName", "first_test");
-    
+
     // Passing browserstack caspabilities inside bstack:options
     caps.setCapability("bstack:options", browserstackOptions);
 
@@ -40,7 +38,7 @@ public class BrowserStackSample {
     caps.setCapability("deviceName", "iPhone 11 Pro");
     caps.setCapability("platformName", "ios");
     caps.setCapability("platformVersion", "13");
-    
+
     // Initialise the remote Webdriver using BrowserStack remote URL
     // and desired capabilities defined above
     IOSDriver driver = new IOSDriver(
@@ -50,7 +48,10 @@ public class BrowserStackSample {
 
     // Test case for the BrowserStack sample iOS app.
     // If you have uploaded your app, update the test case here.
-    WebElement textButton = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30))
+    WebElement textButton = (WebElement) new WebDriverWait(
+      driver,
+      Duration.ofSeconds(30)
+    )
     .until(
         ExpectedConditions.elementToBeClickable(
           AppiumBy.accessibilityId("Text Button")
@@ -58,7 +59,10 @@ public class BrowserStackSample {
       );
     textButton.click();
 
-    WebElement textInput = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30))
+    WebElement textInput = (WebElement) new WebDriverWait(
+      driver,
+      Duration.ofSeconds(30)
+    )
     .until(
         ExpectedConditions.elementToBeClickable(
           AppiumBy.accessibilityId("Text Input")
@@ -67,7 +71,10 @@ public class BrowserStackSample {
     textInput.sendKeys("hello@browserstack.com");
     Thread.sleep(5000);
 
-    WebElement textOutput = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30))
+    WebElement textOutput = (WebElement) new WebDriverWait(
+      driver,
+      Duration.ofSeconds(30)
+    )
     .until(
         ExpectedConditions.elementToBeClickable(
           AppiumBy.accessibilityId("Text Output")

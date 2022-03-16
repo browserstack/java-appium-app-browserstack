@@ -18,7 +18,7 @@ public class BrowserStackSample {
     throws MalformedURLException, InterruptedException {
     DesiredCapabilities caps = new DesiredCapabilities();
     HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
-    
+
     // Set your access credentials
     browserstackOptions.put("userName", "YOUR_USERNAME");
     browserstackOptions.put("accessKey", "YOUR_ACCESS_KEY");
@@ -28,13 +28,13 @@ public class BrowserStackSample {
     browserstackOptions.put("projectName", "First Java Project");
     browserstackOptions.put("buildName", "browserstack-build-1");
     browserstackOptions.put("sessionName", "first_test");
-    
+
     // Passing browserstack caspabilities inside bstack:options
     caps.setCapability("bstack:options", browserstackOptions);
-    
+
     // Set URL of the application under test
     caps.setCapability("app", "bs://<app-id>");
-    
+
     // Specify deviceName and platformName for testing
     caps.setCapability("deviceName", "Google Pixel 3");
     caps.setCapability("platformName", "android");
@@ -49,7 +49,10 @@ public class BrowserStackSample {
 
     // Test case for the BrowserStack sample Android app.
     // If you have uploaded your app, update the test case here.
-    WebElement searchElement = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30))
+    WebElement searchElement = (WebElement) new WebDriverWait(
+      driver,
+      Duration.ofSeconds(30)
+    )
     .until(
         ExpectedConditions.elementToBeClickable(
           AppiumBy.accessibilityId("Search Wikipedia")
@@ -57,7 +60,10 @@ public class BrowserStackSample {
       );
     searchElement.click();
 
-    WebElement insertTextElement = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30))
+    WebElement insertTextElement = (WebElement) new WebDriverWait(
+      driver,
+      Duration.ofSeconds(30)
+    )
     .until(
         ExpectedConditions.elementToBeClickable(
           AppiumBy.id("org.wikipedia.alpha:id/search_src_text")
