@@ -2,12 +2,13 @@ package android;
 
 import com.browserstack.local.Local;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
+
 import java.net.URL;
 import java.time.Duration;
 import java.util.*;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.*;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.*;
 
 public class BrowserStackSampleLocal {
@@ -33,10 +34,23 @@ public class BrowserStackSampleLocal {
     setupLocal();
 
     DesiredCapabilities capabilities = new DesiredCapabilities();
-
+    HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+  
     // Set your access credentials
-    capabilities.setCapability("browserstack.user", userName);
-    capabilities.setCapability("browserstack.key", accessKey);
+    browserstackOptions.put("userName", userName);
+    browserstackOptions.put("accessKey", accessKey);
+
+    // Set other BrowserStack capabilities
+    browserstackOptions.put("appiumVersion", "1.22.0");
+    browserstackOptions.put("projectName", "First Java Project");
+    browserstackOptions.put("buildName", "browserstack-build-1");
+    browserstackOptions.put("sessionName", "local_test");
+
+    // Set the browserstack.local capability to true
+    browserstackOptions.put("local", "true");
+
+    // Passing browserstack capabilities inside bstack:options
+    capabilities.setCapability("bstack:options", browserstackOptions);
 
     // Set URL of the application under test
     capabilities.setCapability("app", "bs://<app-id>");
@@ -46,14 +60,9 @@ public class BrowserStackSampleLocal {
     capabilities.setCapability("platformName", "android");
     capabilities.setCapability("platformVersion", "9.0");
 
-    // Set other BrowserStack capabilities
-    capabilities.setCapability("project", "First Java Project");
-    capabilities.setCapability("build", "browserstack-build-1");
-    capabilities.setCapability("name", "local_test");
-
     // Initialise the remote Webdriver using BrowserStack remote URL
     // and desired capabilities defined above
-    RemoteWebDriver driver = new RemoteWebDriver(
+    AndroidDriver driver = new AndroidDriver(
       new URL("http://hub.browserstack.com/wd/hub"),
       capabilities
     );

@@ -2,6 +2,8 @@ package ios;
 
 import com.browserstack.local.Local;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.ios.IOSDriver;
+
 import java.io.File;
 import java.net.URL;
 import java.time.Duration;
@@ -11,7 +13,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.*;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.*;
 
 public class BrowserStackSampleLocal {
@@ -37,30 +38,35 @@ public class BrowserStackSampleLocal {
     setupLocal();
 
     DesiredCapabilities capabilities = new DesiredCapabilities();
-
+    HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+  
     // Set your access credentials
-    capabilities.setCapability("browserstack.user", userName);
-    capabilities.setCapability("browserstack.key", accessKey);
+    browserstackOptions.put("userName", userName);
+    browserstackOptions.put("accessKey", accessKey);
+
+    // Set other BrowserStack capabilities
+    browserstackOptions.put("appiumVersion", "1.22.0");
+    browserstackOptions.put("projectName", "First Java Project");
+    browserstackOptions.put("buildName", "browserstack-build-1");
+    browserstackOptions.put("sessionName", "local_test");
+
+    // Set the browserstack.local capability to true
+    browserstackOptions.put("local", "true");
+
+    // Passing browserstack capabilities inside bstack:options
+    capabilities.setCapability("bstack:options", browserstackOptions);
 
     // Set URL of the application under test
-    capabilities.setCapability("app", "<app-id>");
+    capabilities.setCapability("app", "bs://<app-id>");
 
     // Specify device and os_version for testing
     capabilities.setCapability("deviceName", "iPhone 11 Pro");
     capabilities.setCapability("platformName", "ios");
     capabilities.setCapability("platformVersion", "13");
 
-    // Set the browserstack.local capability to true
-    capabilities.setCapability("browserstack.local", true);
-
-    // Set other BrowserStack capabilities
-    capabilities.setCapability("project", "First Java Project");
-    capabilities.setCapability("build", "browserstack-build-1");
-    capabilities.setCapability("name", "local_test");
-
     // Initialise the remote Webdriver using BrowserStack remote URL
     // and desired capabilities defined above
-    RemoteWebDriver driver = new RemoteWebDriver(
+    IOSDriver driver = new IOSDriver(
       new URL("http://hub.browserstack.com/wd/hub"),
       capabilities
     );
