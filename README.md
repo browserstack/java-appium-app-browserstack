@@ -29,6 +29,29 @@ mvn clean install
 
 Getting Started with Appium tests in Java on BrowserStack couldn't be easier!
 
+### For java-client 8.0.0 and above
+
+- Any BrowserStack capability passed outside bstack:options will not be honoured \
+[Browserstack Capability Builder](https://www.browserstack.com/app-automate/capabilities?tag=w3c)
+
+- AppiumBy is available with java-client 8.0.0 as MobileBy is depreceated . For java-client < 8.0.0, MobileBy can be used.
+
+- DefaultGenericMobileElement class has been removed completely together with its descendants (MobileElement, IOSElement, AndroidElement etc.). Use WebElement instead.
+
+- WebDriverWait constructor requires time to be passed as a type Duration. So with java-client 8.0.0, pass wait time as a new Duration
+    **java-client v-7.0.0**
+    ```
+     WebElement searchElement = (WebElement) new WebDriverWait(driver, 30)
+    ```
+    
+    **java-client v-8.0.0**
+    ```
+     import java.time.Duration;
+     WebElement searchElement = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30))
+    ```
+    
+  Refer this for tracking changes in java-client 8.0.0 documentation - [v7-to-v8-migration-guide](https://github.com/appium/java-client/blob/master/docs/v7-to-v8-migration-guide.md#mobileelement)
+
 ### Run your first test :
 
 **1. Upload your Android or iOS App**
@@ -93,7 +116,24 @@ Ensure that @ symbol is prepended to the file path in the above request. Please 
 
 **2. Configure and run your local test**
 
-Open `BrowserStackSampleLocal.java` file in the `android` or `ios` directory :
+Local Testing is a BrowserStack feature that helps you test mobile apps that access resources hosted in development or testing environments during automated test execution
+
+**i. Setup Browserstack Local Testing connection :**
+
+Check the releases page to download the binary / native application [Browserstack Local Releases](https://www.browserstack.com/docs/local-testing/releases-and-downloads)
+
+- Option 1
+    - Use Browserstack Local Binary - [Local Binary](https://www.browserstack.com/docs/app-automate/appium/getting-started/java/local-testing)
+- Option 2
+    - Use Browserstack native application - [Local Native App](https://www.browserstack.com/docs/local-testing/local-app-upgrade-guide)
+
+
+NOTE : If you're unable to run the LocalTesting Binary / Native application due to Apple permission issues, go to \
+    ```
+        System preferences -> Security and privacy -> General -> Allow app
+    ```
+
+**ii. Open `BrowserStackSampleLocal.java` file in the `android` or `ios` directory :**
 
 - Replace `YOUR_USERNAME` & `YOUR_ACCESS_KEY` with your BrowserStack access credentials. Get your BrowserStack access credentials from [here](https://www.browserstack.com/accounts/settings)
 
