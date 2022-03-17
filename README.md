@@ -116,6 +116,15 @@ Ensure that @ symbol is prepended to the file path in the above request. Please 
 
 **2. Configure and run your local test**
 
+Local Testing is a BrowserStack feature that helps you test mobile apps that access resources hosted in development or testing environments during automated test execution
+
+To setup Local Testing connection - [Local testing reference](https://www.browserstack.com/docs/app-automate/appium/getting-started/java/local-testing)
+
+NOTE : If you're unable to run the LocalTesting Binary due to Apple permission issues, go to \
+    ```
+        System preferences -> Security and privacy -> General -> Allow app
+    ```
+
 Open `BrowserStackSampleLocal.java` file in the `android` or `ios` directory :
 
 - Replace `YOUR_USERNAME` & `YOUR_ACCESS_KEY` with your BrowserStack access credentials. Get your BrowserStack access credentials from [here](https://www.browserstack.com/accounts/settings)
