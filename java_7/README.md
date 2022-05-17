@@ -1,5 +1,5 @@
-| Using Java 7 with MJSONWP protocol | [Using Java 8 with w3c protocol](../java_8) |
-|----------------------------------- | ------------------------------------------- |
+| Using Java 7 client with MJSONWP protocol | [Using Java 8 client with w3c protocol](../java_8) |
+|------------------------------------------ | -------------------------------------------------- |
 
 # java-appium-app-browserstack
 
@@ -9,7 +9,7 @@ This repository demonstrates how to run Appium Java tests on BrowserStack App Au
 
 ### Requirements
 
-1. Java 8+
+1. Java 8+ (JDK)
 
 - If Java is not installed, follow these instructions:
     - For Windows, download latest java version from [here](https://java.com/en/download/) and run the installer executable
