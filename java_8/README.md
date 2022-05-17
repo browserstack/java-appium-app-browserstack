@@ -1,5 +1,5 @@
-| [Using Java 7 with MJSONWP protocol](../java_7/README.md) | Using Java 8 with w3c protocol |
-|--------------------------------------------------------- | ------------------------------ |
+| [Using Java 7 with MJSONWP protocol](../java_7) | Using Java 8 with w3c protocol |
+|------------------------------------------------ | ------------------------------ |
 
 # java-appium-app-browserstack
 
