@@ -40,8 +40,8 @@ public class BrowserStackSampleLocal {
        capabilities.setCapability("app", "bs://<app-id>");
        
        // Specify device and os_version for testing
-       capabilities.setCapability("device", "iPhone 11 Pro");
-       capabilities.setCapability("os_version", "13");
+       capabilities.setCapability("device", "iPhone X");
+       capabilities.setCapability("os_version", "11");
 
       // Set the browserstack.local capability to true
       capabilities.setCapability("browserstack.local", true);
