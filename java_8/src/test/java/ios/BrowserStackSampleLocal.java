@@ -59,7 +59,7 @@ public class BrowserStackSampleLocal {
     capabilities.setCapability("app", "bs://<app-id>");
 
     // Specify device and os_version for testing
-    capabilities.setCapability("deviceName", "iPhone 11 Pro");
+    capabilities.setCapability("deviceName", "iPhone 12");
     capabilities.setCapability("platformName", "ios");
     capabilities.setCapability("platformVersion", "13");
 
