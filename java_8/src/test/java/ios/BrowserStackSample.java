@@ -35,9 +35,9 @@ public class BrowserStackSample {
     caps.setCapability("app", "bs://<app-id>");
 
     // Specify device and os_version for testing
-    caps.setCapability("deviceName", "iPhone X");
+    caps.setCapability("deviceName", "iPhone 12");
     caps.setCapability("platformName", "ios");
-    caps.setCapability("platformVersion", "11");
+    caps.setCapability("platformVersion", "13");
 
     // Initialise the remote Webdriver using BrowserStack remote URL
     // and desired capabilities defined above
