@@ -1,5 +1,5 @@
 | [Using Java 7 client with MJSONWP protocol](../java_7) | Using Java 8 client with w3c protocol |
-|------------------------------------------------------- | ------------------------------------- |
+| ------------------------------------------------------ | ------------------------------------- |
 
 # java-appium-app-browserstack
 
@@ -12,13 +12,13 @@ This repository demonstrates how to run Appium Java tests on BrowserStack App Au
 1. Java 8+ (JDK)
 
 - If Java is not installed, follow these instructions:
-    - For Windows, download latest java version from [here](https://java.com/en/download/) and run the installer executable
-    - For Mac and Linux, run `java -version` to see what java version is pre-installed. If you want a different version download from [here](https://java.com/en/download/)
+  - For Windows, download latest java version from [here](https://java.com/en/download/) and run the installer executable
+  - For Mac and Linux, run `java -version` to see what java version is pre-installed. If you want a different version download from [here](https://java.com/en/download/)
 
 2. Maven
 
-    - If Maven is not downloaded, download it from [here](https://maven.apache.org/download.cgi)
-    - For installation, follow the instructions [here](https://maven.apache.org/install.html)
+   - If Maven is not downloaded, download it from [here](https://maven.apache.org/download.cgi)
+   - For installation, follow the instructions [here](https://maven.apache.org/install.html)
 
 ### Install the dependencies
 
@@ -35,24 +35,22 @@ Getting Started with Appium tests in Java on BrowserStack couldn't be easier!
 ### For java-client 8.0.0 and above
 
 - Any BrowserStack capability passed outside bstack:options will not be honoured \
-[Browserstack Capability Builder](https://www.browserstack.com/app-automate/capabilities?tag=w3c)
+  [Browserstack Capability Builder](https://www.browserstack.com/app-automate/capabilities?tag=w3c)
 
 - AppiumBy is available with java-client 8.0.0 as MobileBy is depreceated . For java-client < 8.0.0, MobileBy can be used.
 
 - DefaultGenericMobileElement class has been removed completely together with its descendants (MobileElement, IOSElement, AndroidElement etc.). Use WebElement instead.
 
 - WebDriverWait constructor requires time to be passed as a type Duration. So with java-client 8.0.0, pass wait time as a new Duration
-    **java-client v-7.0.0**
-    ```
-     WebElement searchElement = (WebElement) new WebDriverWait(driver, 30)
-    ```
-    
-    **java-client v-8.0.0**
-    ```
-     import java.time.Duration;
-     WebElement searchElement = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30))
-    ```
-    
+  **java-client v-7.0.0**
+  ```
+   WebElement searchElement = (WebElement) new WebDriverWait(driver, 30)
+  ```
+  **java-client v-8.0.0**
+  ```
+   import java.time.Duration;
+   WebElement searchElement = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30))
+  ```
   Refer this for tracking changes in java-client 8.0.0 documentation - [v7-to-v8-migration-guide](https://github.com/appium/java-client/blob/master/docs/v7-to-v8-migration-guide.md#mobileelement)
 
 ### Run your first test :
@@ -85,17 +83,17 @@ Open `BrowserStackSample.java` file in the `android` directory or `ios` director
 
 - To run the test, use the following command in the base directory :
 
-    - For Android test, run
+  - For Android test, run
 
-    ```cmd
-    mvn test -P android-first-test
-    ```
+  ```cmd
+  mvn test -P android-first-test
+  ```
 
-    - For iOS test, run
+  - For iOS test, run
 
-    ```cmd
-    mvn test -P ios-first-test
-    ```
+  ```cmd
+  mvn test -P ios-first-test
+  ```
 
 - You can access the test execution results, and debugging information such as video recording, network logs on [App Automate dashboard](https://app-automate.browserstack.com/dashboard)
 
@@ -121,22 +119,7 @@ Ensure that @ symbol is prepended to the file path in the above request. Please 
 
 Local Testing is a BrowserStack feature that helps you test mobile apps that access resources hosted in development or testing environments during automated test execution
 
-**i. Setup Browserstack Local Testing connection :**
-
-Check the releases page to download the binary / native application [Browserstack Local Releases](https://www.browserstack.com/docs/local-testing/releases-and-downloads)
-
-- Option 1
-    - Use Browserstack Local Binary - [Local Binary](https://www.browserstack.com/docs/app-automate/appium/getting-started/java/local-testing)
-- Option 2
-    - Use Browserstack native application - [Local Native App](https://www.browserstack.com/docs/local-testing/local-app-upgrade-guide)
-
-
-NOTE : If you're unable to run the LocalTesting Binary / Native application due to Apple permission issues, go to \
-    ```
-        System preferences -> Security and privacy -> General -> Allow app
-    ```
-
-**ii. Open `BrowserStackSampleLocal.java` file in the `android` or `ios` directory :**
+Open `BrowserStackSampleLocal.java` file in the `android` or `ios` directory :
 
 - Replace `YOUR_USERNAME` & `YOUR_ACCESS_KEY` with your BrowserStack access credentials. Get your BrowserStack access credentials from [here](https://www.browserstack.com/accounts/settings)
 
@@ -144,26 +127,25 @@ NOTE : If you're unable to run the LocalTesting Binary / Native application due 
 
 - Set the device and OS version
 
-- Ensure that `browserstack.local` capability is set to `true`. Within the test script, there is code snippet that automatically establishes Local Testing connection to BrowserStack servers using Java binding for BrowserStack Local.
+- Ensure that `local` capability is set to `true`. Within the test script, there is code snippet that automatically establishes Local Testing connection to BrowserStack servers using Java binding for BrowserStack Local.
 
 - If you have uploaded your own app update the test case
 
 - To run the test, use the following command in the base directory :
 
-    - For Android test, run
+  - For Android test, run
 
-    ```cmd
-    mvn test -P android-local-test
-    ```
+  ```cmd
+  mvn test -P android-local-test
+  ```
 
-    - For iOS test, run
+  - For iOS test, run
 
-    ```cmd
-    mvn test -P ios-local-test
-    ```
+  ```cmd
+  mvn test -P ios-local-test
+  ```
 
 - You can access the test execution results, and debugging information such as video recording, network logs on [App Automate dashboard](https://app-automate.browserstack.com/dashboard)
-
 
 ## Integration with other Java frameworks
 
