@@ -1,0 +1,10 @@
+*.png
+target/
+local.log
+.idea
+*.iml
+**/.DS_Store
+**/.settings
+.classpath
+.project
+
