@@ -19,29 +19,8 @@ public class BrowserStackSample {
     DesiredCapabilities caps = new DesiredCapabilities();
     HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
 
-    // Set your access credentials
-    browserstackOptions.put("userName", "YOUR_USERNAME");
-    browserstackOptions.put("accessKey", "YOUR_ACCESS_KEY");
-
-    // Set other BrowserStack capabilities
-    browserstackOptions.put("appiumVersion", "1.22.0");
-    browserstackOptions.put("projectName", "First Java Project");
-    browserstackOptions.put("buildName", "browserstack-build-1");
-    browserstackOptions.put("sessionName", "first_test");
-
-    // Passing browserstack capabilities inside bstack:options
-    caps.setCapability("bstack:options", browserstackOptions);
-
-    // Set URL of the application under test
-    caps.setCapability("app", "bs://<app-id>");
-
-    // Specify deviceName and platformName for testing
-    caps.setCapability("deviceName", "Google Pixel 3");
-    caps.setCapability("platformName", "android");
-    caps.setCapability("platformVersion", "9.0");
-
     // Initialise the remote Webdriver using BrowserStack remote URL
-    // and desired capabilities defined above
+    // sdk injects desired capabilities
     AndroidDriver driver = new AndroidDriver(
       new URL("http://hub.browserstack.com/wd/hub"),
       caps

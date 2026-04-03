@@ -16,31 +16,9 @@ public class BrowserStackSample {
   public static void main(String[] args)
     throws MalformedURLException, InterruptedException {
     DesiredCapabilities caps = new DesiredCapabilities();
-    HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
-
-    // Set your access credentials
-    browserstackOptions.put("userName", "YOUR_USERNAME");
-    browserstackOptions.put("accessKey", "YOUR_ACCESS_KEY");
-
-    // Set other BrowserStack capabilities
-    browserstackOptions.put("appiumVersion", "1.22.0");
-    browserstackOptions.put("projectName", "First Java Project");
-    browserstackOptions.put("buildName", "browserstack-build-1");
-    browserstackOptions.put("sessionName", "first_test");
-
-    // Passing browserstack capabilities inside bstack:options
-    caps.setCapability("bstack:options", browserstackOptions);
-
-    // Set URL of the application under test
-    caps.setCapability("app", "bs://<app-id>");
-
-    // Specify device and os_version for testing
-    caps.setCapability("deviceName", "iPhone 12");
-    caps.setCapability("platformName", "ios");
-    caps.setCapability("platformVersion", "13");
-
+    
     // Initialise the remote Webdriver using BrowserStack remote URL
-    // and desired capabilities defined above
+    // sdk injects desired capabilities
     IOSDriver driver = new IOSDriver(
       new URL("http://hub.browserstack.com/wd/hub"),
       caps

@@ -1,0 +1,48 @@
+userName: BROWSERSTACK_USERNAME   # or set env var BROWSERSTACK_USERNAME
+accessKey: BROWSERSTACK_ACCESS_KEY
+
+projectName: First Java Project
+buildName: browserstack-build-1
+buildIdentifier: '#${BUILD_NUMBER}'
+
+app: bs://<app-id>   # path or bs://<app-id>
+
+
+# =======================================
+# Platforms (Browsers / Devices to test)
+# =======================================
+# Platforms object contains all the browser / device combinations you want to test on.
+# Entire list available here -> (https://www.browserstack.com/list-of-browsers-and-platforms/automate)
+platforms:
+  - deviceName: Google Pixel 9
+    platformVersion: 15.0
+    platformName: android
+  - deviceName: Google Pixel 7
+    platformVersion: 13.0
+    platformName: android
+
+# for ios
+# platforms:
+#   - deviceName: iPhone 14
+#     platformVersion: 16.0
+#     platformName: ios
+#   - deviceName: iPhone 13
+#     platformVersion: 15.0
+#     platformName: ios
+
+parallelsPerPlatform: 1
+
+browserstackLocal: false
+#browserStackLocalOptions:
+#Options to be passed to BrowserStack local in-case of advanced configurations
+#  localIdentifier: # <string> (Default: null) Needed if you need to run multiple instances of local.
+#  forceLocal: true  # <boolean> (Default: false) Set to true if you need to resolve all your traffic via BrowserStack Local tunnel.
+# Entire list of arguments available here -> https://www.browserstack.com/docs/automate/selenium/manage-incoming-connections
+
+# ===================
+# Debugging features
+# ===================
+debug: false # <boolean> # Set to true if you need screenshots for every selenium command ran
+networkLogs: false # <boolean> Set to true to enable HAR logs capturing
+consoleLogs: errors # <string> Remote browser's console debug levels to be printed (Default: errors)
+# Available options are `disable`, `errors`, `warnings`, `info`, `verbose` (Default: errors)
