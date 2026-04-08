@@ -10,11 +10,11 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<surefire.version>2.19.1</surefire.version>
+		<surefire.version>3.0.0-M5</surefire.version>
 		<test.file></test.file>
 		<config.file>default</config.file>
+		<browserstack-java-sdk.version>LATEST</browserstack-java-sdk.version>
 	</properties>
-
 
 	<dependencies>
 		<dependency>
@@ -37,15 +37,17 @@
 			<artifactId>json-simple</artifactId>
 			<version>1.1.1</version>
 		</dependency>
+		<!-- BrowserStack SDK dependency -->
+		<dependency>
+			<groupId>com.browserstack</groupId>
+			<artifactId>browserstack-java-sdk</artifactId>
+			<version>${browserstack-java-sdk.version}</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.2</version>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -53,6 +55,28 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<!-- Resolves the SDK jar path into ${com.browserstack:browserstack-java-sdk:jar} -->
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>getClasspathFilenames</id>
+						<goals>
+							<goal>properties</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${surefire.version}</version>
+				<configuration>
+					<argLine>
+						-javaagent:${com.browserstack:browserstack-java-sdk:jar}
+					</argLine>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -64,21 +88,17 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>exec-maven-plugin</artifactId>
-						<version>1.1.1</version>
-						<executions>
-							<execution>
-								<phase>test</phase>
-								<goals>
-									<goal>java</goal>
-								</goals>
-								<configuration>
-									<mainClass>android.BrowserStackSample</mainClass>
-									<classpathScope>test</classpathScope>
-								</configuration>
-							</execution>
-						</executions>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>${surefire.version}</version>
+						<configuration>
+							<includes>
+								<include>**/android/BrowserStackSample.java</include>
+							</includes>
+							<argLine>
+								-javaagent:${com.browserstack:browserstack-java-sdk:jar}
+							</argLine>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
@@ -88,21 +108,17 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>exec-maven-plugin</artifactId>
-						<version>1.1.1</version>
-						<executions>
-							<execution>
-								<phase>test</phase>
-								<goals>
-									<goal>java</goal>
-								</goals>
-								<configuration>
-									<mainClass>android.BrowserStackSampleLocal</mainClass>
-									<classpathScope>test</classpathScope>
-								</configuration>
-							</execution>
-						</executions>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>${surefire.version}</version>
+						<configuration>
+							<includes>
+								<include>**/android/BrowserStackSampleLocal.java</include>
+							</includes>
+							<argLine>
+								-javaagent:${com.browserstack:browserstack-java-sdk:jar}
+							</argLine>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
@@ -112,21 +128,17 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>exec-maven-plugin</artifactId>
-						<version>1.1.1</version>
-						<executions>
-							<execution>
-								<phase>test</phase>
-								<goals>
-									<goal>java</goal>
-								</goals>
-								<configuration>
-									<mainClass>ios.BrowserStackSample</mainClass>
-									<classpathScope>test</classpathScope>
-								</configuration>
-							</execution>
-						</executions>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>${surefire.version}</version>
+						<configuration>
+							<includes>
+								<include>**/ios/BrowserStackSample.java</include>
+							</includes>
+							<argLine>
+								-javaagent:${com.browserstack:browserstack-java-sdk:jar}
+							</argLine>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
@@ -136,21 +148,17 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>exec-maven-plugin</artifactId>
-						<version>1.1.1</version>
-						<executions>
-							<execution>
-								<phase>test</phase>
-								<goals>
-									<goal>java</goal>
-								</goals>
-								<configuration>
-									<mainClass>ios.BrowserStackSampleLocal</mainClass>
-									<classpathScope>test</classpathScope>
-								</configuration>
-							</execution>
-						</executions>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>${surefire.version}</version>
+						<configuration>
+							<includes>
+								<include>**/ios/BrowserStackSampleLocal.java</include>
+							</includes>
+							<argLine>
+								-javaagent:${com.browserstack:browserstack-java-sdk:jar}
+							</argLine>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
